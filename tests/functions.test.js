@@ -4,20 +4,28 @@ const {
     add,
     subtract,
     multiply,
-    divide
+    divide,
+    arrLength
 } = require('../src/functions');
 
 require('../src/functions');
 
-test("returnTwo should return 2", () => expect(returnTwo()).toEqual(2))
+describe("returnTwo function", () => {
+    test("returns 2 as a number", () => {
+        expect(returnTwo()).toEqual(2);
+        expect(typeof returnTwo()).toBe("number");
+    });
+});
 
-describe("greeting function returns the name parameter", () => {
+
+describe("greeting function", () => {
     test("returns a string", () => expect(typeof greeting("Cody")).toBe("string"));
 
-    test("returns 'Hello, James.'", () => expect(greeting("James")).toBe("Hello, James."));
-
-    test("returns 'Hello, Jill.'", () => expect(greeting("Jill")).toBe("Hello, Jill."));
-})
+    test("returns the phrase with the name parameter", () => {
+        expect(greeting("James")).toBe("Hello, James.")
+        expect(greeting("Jill")).toBe("Hello, Jill.")
+    });
+});
 
 describe("Math functions", () => {
 
@@ -32,7 +40,7 @@ describe("Math functions", () => {
     });
 
     test("multiply function correctly returns the product of two numbers", () => {
-        expect(multiply(4,4)).toEqual(16);
+        expect(multiply(4, 4)).toEqual(16);
         expect(multiply(5, 7)).toEqual(35);
     });
 
@@ -46,5 +54,15 @@ describe("Math functions", () => {
         expect(typeof subtract(1,1)).toBe('number');
         expect(typeof divide(1,1)).toBe('number');
         expect(typeof multiply(1,1)).toBe('number');
+    });
+});
+
+describe("arrLength function", () => {
+    test("returns the length of the array as a number", () => {
+        let sample1 = [1, 2, 3, 4, 5, 6];
+        let sample2 = [1, 2, 3];
+
+        expect(typeof arrLength(sample1)).toBe("number");
+        expect(arrLength(sample2)).toEqual(3);
     });
 });
