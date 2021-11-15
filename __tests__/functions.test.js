@@ -1,26 +1,13 @@
 const { 
     returnTwo,
     greeting,
-    add
+    add,
+    subtract,
+    multiply,
+    divide
 } = require('../src/functions');
 
 require('../src/functions');
-
-// Create a test for returnTwo:
-
-// This test should expect returnTwo() to equal 2.
-
-// Create a test for greeting:
-
-// This test should expect greeting('James') to equal "Hello, James.".
-
-// This test should expect greeting('Jill') to equal "Hello, Jill.".
-
-// Create a test for add:
-
-// This test should expect add(1, 2) to equal 3.
-
-// This test should expect add(5, 9) to equal 14.
 
 test("returnTwo should return 2", () => expect(returnTwo()).toEqual(2))
 
@@ -32,8 +19,32 @@ describe("greeting function returns the name parameter", () => {
     test("returns 'Hello, Jill.'", () => expect(greeting("Jill")).toBe("Hello, Jill."));
 })
 
-describe("add function correctly returns the sum of two numbers", () => {
-    test("1 + 2 = 3", () => expect(add(1, 2)).toEqual(3));
+describe("Math functions", () => {
 
-    test("5 + 9 = 14", () => expect(add(5, 9)).toEqual(14));
-})
+    test("add function correctly returns the sum of two numbers", () => {
+        expect(add(1, 2)).toEqual(3);
+        expect(add(5, 9)).toEqual(14);
+    });
+
+    test("subtract function correctly returns the difference of two numbers", () => {
+        expect(subtract(10, 1)).toEqual(9);
+        expect(subtract(5, 3)).toEqual(2);
+    });
+
+    test("multiply function correctly returns the product of two numbers", () => {
+        expect(multiply(4,4)).toEqual(16);
+        expect(multiply(5, 7)).toEqual(35);
+    });
+
+    test("divide function correctly returns the quotient of two numbers", () => {
+        expect(divide(100, 10)).toEqual(10);
+        expect(divide(144, 12)).toEqual(12);
+    });
+
+    test("math functions return numbers", () => {
+        expect(typeof add(1,1)).toBe('number');
+        expect(typeof subtract(1,1)).toBe('number');
+        expect(typeof divide(1,1)).toBe('number');
+        expect(typeof multiply(1,1)).toBe('number');
+    });
+});
